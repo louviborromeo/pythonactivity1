@@ -1,0 +1,136 @@
+import random
+import time
+character_health = 100
+monster_health = 100
+attack = 20
+attack2 = 25
+attack3 = 40
+defense = 15
+health = 0
+health2 = 0
+item = ""
+
+
+name = input("Please enter your name: ")
+print("Hello " + name)
+
+v = int(input("Choose 1 if you want to cross the river\nChoose 2 if you want to jump on the ravine\nInput: "))
+if v == 1:
+    print("You've made it across the river.")
+elif v == 2:
+    print("You have jumped into the ravine")
+    print("Your character has been damaged by 10 points.")
+    character_health = character_health - 10
+else:
+    print("Invalid input")
+
+print("Your character's Health: " + str(character_health))
+while character_health > 0:
+    if character_health != 100 and item == "Fish":
+        n = input("You have taken some damage to heal select [1 to heal/ 0 to ignore]")
+        if n == "1":
+            character_health += 10
+            print("Your character's health is back to " + str(character_health))
+        else :
+             print("Your character's health is back to " + str(character_health))
+
+
+    v = int(input("Choose 1 if you want to cross the river\nChoose 2 if you want to jump on the ravine\nChoose 3 if you want to fight monster in the dungeon \nInput: "))
+
+    #Start of Journey
+    if v == 1: 
+        choice = input("If you want to go fishing select [y for yes/ n for no]")
+        if choice == "1":
+            #Fishing minigame
+            print("You have chosen Fishing! ")
+            chance = random.randint(0,9)
+            if chance > 6:
+                item = "Fish"
+                print("You have catch a Fish!")
+            else:
+                print("There is no fish to catch")
+
+        elif choice == "0":
+            print("You have crossed the river")
+
+
+    elif v == 2:
+        #damages the player
+        print("You have jumped into the ravine")
+        print("Your character has taken 10pt of damage")
+        character_health = character_health - 10
+
+    elif v == 3:
+        #damages the monster
+        print("You've made it to the dungeon.")
+
+        hero = int(input("What character do you want to be?\n Choose from the following options: \n [1] Solvaige \n [2] Clayton \n [3] Deme \n Choice:"))
+        #marksman
+        if hero == 1:
+            print("Solvaige was your choice")
+            print(str (name)+"'s " + "Health:" + str (character_health) + " Attack:" + str (attack) +"\n")
+            print("The Monster is approaching! \n")
+            while character_health >0:
+                if monster_health != 0:
+                    action = int(input("\n" +"What do you want to do?\n [1] Attack \n [2]Leave Game \n Action:" ))
+                    if action == 1:
+                            monster_health -= 20
+                            print("\n" + str (name)+" :" + str (character_health) +" Monster:"+ str (monster_health))
+                            print("\n The Monster is preparing to attack! \n")
+                            time.sleep(3)
+                            character_health -=15
+                            print("\n" +str (name)+" :" + str (character_health) +" Monster:"+ str (monster_health))
+                    elif action == 2:
+                        break
+                elif monster_health == 0:
+                    print("\n" +str (name)+"'s " + "Health:" + str (character_health) + " Attack:" + str (attack) +"\n")
+                    print("Congratulations!! You have defeated the Monster!\n")
+                    break
+        #mage
+        elif hero == 2:
+            print("Clayton was your choice.")  
+            print("Health:" + str (character_health) +" Defense:" + str (attack) + " Attack:" + str (defense)+"\n")
+            print("The Monster is approaching!")  
+            while character_health >0:
+                if monster_health != 0:
+                    action = int(input("\n" +"What do you want to do?\n [1] Attack \n [2]Leave Game \n Action:" ))
+                    if action == 1:
+                            monster_health -= 20
+                            print("\n" +str (name)+" :" + str (character_health) +" Monster:"+ str (monster_health))
+                            print("\n The Monster is preparing to attack! \n")
+                            time.sleep(3)
+                            character_health -=15
+                            print("\n" +str (name)+" :" + str (character_health) +" Monster:"+ str (monster_health))
+                    elif action == 2:
+                        break
+                elif monster_health == 0:
+                        print("Congratulations!! You have defeated the Monster!\n")
+                        break
+                    
+        #assassin
+        elif hero == 3:
+            print("Deme was your choice.") 
+            print("Health:" + str (character_health) +" Defense:" + str (attack) + " Attack:" + str (defense)+"\n")
+            print("The Moster is approaching!")
+            while character_health > 0:
+                if monster_health != 0:
+                    action = int(input("\n" +"What do you want to do?\n [1] Attack \n [2]Leave Game \n Action:" ))
+                    if action == 1:
+                            monster_health -= 20
+                            print("\n" +str (name)+" :" + str (character_health) +" Monster:"+ str (monster_health))
+                            print("\n The Monster is preparing to attack! \n")
+                            time.sleep(1)
+                            character_health -= 15
+                            print("\n" +str (name)+" :" + str (character_health) +" Monster:"+ str (monster_health))
+                    elif action == 2:
+                        break
+                elif monster_health == 0:
+                    print("Congratulations!! You have defeated the Monster! \n")
+                    break
+                
+    else:
+        print("Invalid input")
+
+    print("Your character's Health: " + str(character_health))
+
+print("Your character has recently died.!")

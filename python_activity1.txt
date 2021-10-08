@@ -64,10 +64,10 @@ while character_health > 0:
         #damages the monster
         print("You've made it to the dungeon.")
 
-        hero = int(input("What character do you want to be?\n Choose from the following options: \n [1] Solvaige \n [2] Clayton \n [3] Deme \n Choice:"))
+        hero = int(input("What character do you want to be?\n Choose from the following options: \n [1] Belinda \n [2] Aminah \n [3] Deacon \n Choice:"))
         #marksman
         if hero == 1:
-            print("Solvaige was your choice")
+            print("Belinda was your choice")
             print(str (name)+"'s " + "Health:" + str (character_health) + " Attack:" + str (attack) +"\n")
             print("The Monster is approaching! \n")
             while character_health >0:
@@ -88,7 +88,7 @@ while character_health > 0:
                     break
         #mage
         elif hero == 2:
-            print("Clayton was your choice.")  
+            print("Aminah was your choice.")  
             print("Health:" + str (character_health) +" Defense:" + str (attack) + " Attack:" + str (defense)+"\n")
             print("The Monster is approaching!")  
             while character_health >0:
@@ -109,7 +109,7 @@ while character_health > 0:
                     
         #assassin
         elif hero == 3:
-            print("Deme was your choice.") 
+            print("Deacon was your choice.") 
             print("Health:" + str (character_health) +" Defense:" + str (attack) + " Attack:" + str (defense)+"\n")
             print("The Moster is approaching!")
             while character_health > 0:
